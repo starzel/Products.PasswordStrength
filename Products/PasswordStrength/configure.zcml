@@ -25,7 +25,7 @@
     <monkey:patch
       preconditions="Products.CMFPlone-=4.2.99"
       description="Change password description schema"
-      class="plone.app.users.browser.personalpreferences.PasswordAccountPanel"
+      class="plone.app.users.browser.passwordpanel.PasswordPanelAdapter"
       original="update"
       replacement=".backward.updatePasswordAccountPanel"
       docstringWarning="true"

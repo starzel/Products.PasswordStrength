@@ -21,7 +21,7 @@ from zope.i18n import translate
 from plone.api import portal
 
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
-from plone.app.users.browser.personalpreferences import IPasswordSchema
+from plone.app.users.browser.passwordpanel import IPasswordSchema
 
 log = logging.getLogger('PasswordStrength')
 

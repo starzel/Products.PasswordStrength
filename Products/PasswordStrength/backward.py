@@ -2,7 +2,7 @@ from Products.PluggableAuthService.interfaces.plugins import IValidationPlugin
 from Products.CMFCore.utils import getToolByName
 from Products.PasswordStrength import _
 from plone.app.users.browser.register import BaseRegistrationForm
-from plone.app.users.browser.personalpreferences import PasswordAccountPanel
+from plone.app.users.browser.passwordpanel import PasswordPanelAdapter
 
 
 # monkey patch to be used for Plone < 4.3
@@ -61,4 +61,4 @@ def updatePasswordAccountPanel(self):
         err_str = registration.testPasswordValidity('')
         if err_str:
             self.form_fields['new_password'].field.description = err_str
-    super(PasswordAccountPanel, self).update()
+    super(PasswordPanelAdapter, self).update()
