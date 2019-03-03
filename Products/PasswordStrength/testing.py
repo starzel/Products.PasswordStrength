@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
-import pkg_resources
-PLONE_VERSION = pkg_resources.get_distribution('Products.CMFPlone').version
-
+from plone.app.robotframework.testing import MOCK_MAILHOST_FIXTURE
+from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-
 from plone.testing import z2
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
-from plone.app.robotframework.testing import MOCK_MAILHOST_FIXTURE
-
 from tests.robot_setup import PasswordStrengthRemoteKeywords
+
+import pkg_resources
+
+PLONE_VERSION = pkg_resources.get_distribution('Products.CMFPlone').version
 
 try:
     from Products.CMFPlone.tests.robot.robot_setup import CMFPloneRemoteKeywords
@@ -33,6 +32,7 @@ class Fixture(PloneSandboxLayer):
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         self.applyProfile(portal, 'Products.PasswordStrength:default')
+
 
 FIXTURE = Fixture()
 INTEGRATION_TESTING = IntegrationTesting(
